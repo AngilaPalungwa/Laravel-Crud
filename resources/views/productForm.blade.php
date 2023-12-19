@@ -43,6 +43,10 @@
                               <label for="exampleInputPassword1" class="form-label">Price</label>
                               <input type="price" name="price" class="form-control" id="exampleInputaddress1" value="{{ old("price") }}">
                             </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Image</label>
+                              <input type="file" name="price" class="form-control" id="exampleInputaddress1" value="{{ old("price") }}">
+                            </div>
                             <div class="mb-3 form-check">
                               <input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">Status</label>
