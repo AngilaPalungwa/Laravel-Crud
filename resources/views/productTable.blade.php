@@ -43,7 +43,7 @@
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->category }}</td>
                                         <td>{{ $product->price }}</td>
-                                        <td><a href="" class="btn btn-success m-2">Edit</a><a href="" class="btn btn-danger m-2">Delete</a></td>
+                                        <td><a href="{{ route('product.edit',$product->id) }}" class="btn btn-success m-2">Edit</a><a href="{{ route('product.delete',$product->id) }}" class="btn btn-danger m-2">Delete</a></td>
                                     </tr>
                                     @endforeach
 
