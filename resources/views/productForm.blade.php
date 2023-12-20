@@ -21,38 +21,44 @@
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
-                                    {{-- @foreach ($errors->any() as error )
-                                        <li>{{ $errors }}</li>
-                                    @endforeach --}}
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
-
                         @endif
-                        <form action="/form" method="post">
+                        <form action=" {{ route('product.submit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                              <label for="exampleInputName1" class="form-label">Name</label>
-                              <input type="name" name="name" class="form-control" id="exampleInputname1" value="{{ old("name") }}" >
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                             </div>
 
                             <div class="mb-3">
-                              <label for="exampleInputCategory1"  class="form-label">Category</label>
-                              <input type="category" name="category" class="form-control" id="exampleInputPassword1" value="{{ old("category") }}">
+                                <label class="form-label">Category</label>
+                                <input type="text" name="category" class="form-control"
+                                    value="{{ old('category') }}">
                             </div>
                             <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Price</label>
-                              <input type="price" name="price" class="form-control" id="exampleInputaddress1" value="{{ old("price") }}">
+                                <label class="form-label">Price</label>
+                                <input type="text" name="price" class="form-control" value="{{ old('price') }}">
                             </div>
                             <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Image</label>
-                              <input type="file" name="price" class="form-control" id="exampleInputaddress1" value="{{ old("price") }}">
+                                <label class="form-label">Image</label>
+                                <input type="file" name="image" class="form-control" value="{{ old('image') }}">
                             </div>
-                            <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Status</label>
+                            <div class="mb-3 mt-4">
+                                <label class="form-label">Status</label>
+                                <select name ='status'>
+
+                                    <option value='1' {{ old('select') == '1' ? 'selected' : '' }}>Active</option>
+                                    <option value='0' {{ old('select') == '0' ? 'selected' : '' }}>Inactive
+                                    </option>
+                                </select>
+
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                          </form>
+                            <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
 

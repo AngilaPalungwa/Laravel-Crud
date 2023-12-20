@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('productForm');
 });
+Route::get('/productForm',[ProductController::class,'form'])->name('product.form');
+Route::post('/productSubmit',[ProductController::class,'handleProduct'])->name('product.submit');
+Route::get('/productIndex',[ProductController::class,'index'])->name('product.index');
