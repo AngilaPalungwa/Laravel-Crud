@@ -45,7 +45,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Image</label>
-                                <input type="file" name="image" class="form-control" value="{{ old('image') }}">
+                                <input type="file" name="file" class="form-control" value="{{ old('file') }}">
                             </div>
                             <div class="mb-3 mt-4">
                                 <label class="form-label">Status</label>

@@ -46,9 +46,9 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Image</label>
-                                <input type="file" name="image" class="form-control" value="">
-                                @if ($product->image)
-                                    <img src="{{ $product->image }}" alt="">
+                                <input type="file" name="file" class="form-control" value="">
+                                @if ($product->file)
+                                    <img src="{{ $product->file }}" alt="">
                                 @endif
                             </div>
                             <div class="mb-3 mt-4">

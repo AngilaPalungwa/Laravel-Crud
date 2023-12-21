@@ -21,16 +21,16 @@ class ProductController extends Controller
             'name'=>'required',
             'category'=>'required',
             'price'=>'required',
-            'image'=>'required'
+            'file'=>'required'
         ]);
         try {
             $image_url='';
-            if($request->has('file') && $request->image('image')){
-                $file=$request->image();
-                $fileName=time().'-'.rand(10,99999).'-'.$file->getClientOriginalname();
+            if($request->has('file') && $request->file('file')){
+                $file=$request->file;
+                $fileName =  time().'-'.rand(10,999999).'-'. $file->getClientOriginalname();
                 $path=public_path().'profiles'.'/';
                 $file->move($path,$fileName);
-                $image_url=asset('profiles'/$fileName);
+                $image_url=asset("profiles/$fileName");
 
             }
             $data=[
@@ -38,9 +38,9 @@ class ProductController extends Controller
                 'category'=>$request->category,
                 'price'=>$request->price,
                 'status'=>$request->status,
-                'image'=>$image_url,
+                'file'=>$image_url,
             ];
-
+            // dd($data);
             $product=Product::create($data);
             session()->flash('message','Record Added Successfully');
             return redirect()->route('product.index');
@@ -71,16 +71,16 @@ class ProductController extends Controller
             'name'=>'required',
             'category'=>'required',
             'price'=>'required',
-            'image'=>'required'
+            'file'=>'required'
         ]);
         try {
             $image_url='';
-            if($request->has('file') && $request->image('image')){
-                $file=$request->image();
-                $fileName=time().'-'.rand(10,99999).'-'.$file->getClientOriginalname();
+            if($request->has('file') && $request->file('file')){
+                $file=$request->file;
+                $fileName =  time().'-'.rand(10,999999).'-'. $file->getClientOriginalname();
                 $path=public_path().'profiles'.'/';
                 $file->move($path,$fileName);
-                $image_url=asset('profiles'/$fileName);
+                $image_url=asset("profiles/$fileName");
 
             }
             $data=[
@@ -88,7 +88,7 @@ class ProductController extends Controller
                 'category'=>$request->category,
                 'price'=>$request->price,
                 'status'=>$request->status,
-                'image'=>$image_url,
+                'file'=>$image_url,
             ];
 
             $product=Product::find($id);
